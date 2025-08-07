@@ -21,13 +21,13 @@ jobs:
       - name: Write key
         run: |
           if [ ! -z "${{ secrets.KEY_STORE }}" ]; then
-          echo androidStorePassword='${{ secrets.KEY_STORE_PASSWORD }}' >> gradle.properties
-          echo androidKeyAlias='${{ secrets.ALIAS }}' >> gradle.properties
-          echo androidKeyPassword='${{ secrets.KEY_PASSWORD }}' >> gradle.properties
-          echo androidStoreFile='key.jks' >> gradle.properties
-          echo ${{ secrets.KEY_STORE }} | base64 --decode > key.jks
+            echo "androidStorePassword=${{ secrets.KEY_STORE_PASSWORD }}" >> gradle.properties
+            echo "androidKeyAlias=${{ secrets.ALIAS }}" >> gradle.properties
+            echo "androidKeyPassword=${{ secrets.KEY_PASSWORD }}" >> gradle.properties
+            echo "androidStoreFile=key.jks" >> gradle.properties
+            echo "${{ secrets.KEY_STORE }}" | base64 --decode > key.jks
           fi
-
+          
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
