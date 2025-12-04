@@ -241,7 +241,7 @@
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="string/developer_warning_title"
+                            android:text="Developer Warning"
                             android:textAppearance="?textAppearanceTitleSmall"
                             android:textColor="?colorOnErrorContainer" />
 
@@ -249,7 +249,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="string/developer_warning_summary"
+                            android:text="Warning summary placeholder"
                             android:textAppearance="?textAppearanceBodySmall"
                             android:textColor="?colorOnErrorContainer"
                             android:lineSpacingMultiplier="1.3" />
