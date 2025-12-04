@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ WaEnhancer General Home Preferences
+  ~
+  ~ This screen contains the theme mode selector and other general settings.
+  ~ Theme selection options:
+  ~ - Follow System (0): Uses Android system theme setting
+  ~ - Dark Theme On (1): Forces dark theme
+  ~ - Dark Theme Off (2): Forces light theme (uses light Material3 theme)
+  ~
+  ~ The theme mode preference triggers App.setThemeMode() via BasePreferenceFragment.
+  -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:title="@string/general">
 
+        <!--
+          ~ Material3 Theme Mode Selection
+          ~ Controls the app's dark/light theme mode:
+          ~ - Mode 0 (Follow System): Uses AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+          ~ - Mode 1 (Dark On): Uses AppCompatDelegate.MODE_NIGHT_YES
+          ~ - Mode 2 (Dark Off): Uses AppCompatDelegate.MODE_NIGHT_NO
+          ~
+          ~ On Android 12+, Material You dynamic colors are applied regardless of mode.
+          ~ On Android 16+, predictive back animations and enhanced theme transitions.
+          -->
         <ListPreference
             app:entries="@array/thememode_entries"
             app:entryValues="@array/thememode_values"

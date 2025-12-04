@@ -28,6 +28,24 @@ import java.util.Objects;
 
 import rikka.material.preference.MaterialSwitchPreference;
 
+/**
+ * Base PreferenceFragment for all preference screens in WaEnhancer.
+ * <p>
+ * Handles preference changes including theme mode selection.
+ * <p>
+ * Theme Mode Handling:
+ * When the "thememode" preference changes, this fragment calls App.setThemeMode()
+ * to update the AppCompatDelegate night mode setting. This triggers an automatic
+ * recreation of activities to apply the new theme.
+ * <p>
+ * Material3 Integration:
+ * - Uses rikka.material.preference for Material3-styled preferences
+ * - Theme overlays are applied in BaseActivity.onCreate()
+ * - Dynamic colors are supported on Android 12+ through the theme hierarchy
+ *
+ * @see com.wmods.wppenhacer.App#setThemeMode(int)
+ * @see com.wmods.wppenhacer.activities.base.BaseActivity
+ */
 public abstract class BasePreferenceFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
     protected SharedPreferences mPrefs;
 
@@ -111,6 +129,12 @@ public abstract class BasePreferenceFragment extends PreferenceFragmentCompat im
             setPreferenceState("custom_filters", false);
         }
 
+        // Handle theme mode changes
+        // Material3 Theme Mode Selection:
+        // - Mode 0: Follow system theme (uses MODE_NIGHT_FOLLOW_SYSTEM)
+        // - Mode 1: Force dark theme (uses MODE_NIGHT_YES)
+        // - Mode 2: Force light theme (uses MODE_NIGHT_NO)
+        // On Android 12+, dynamic colors are automatically applied regardless of mode
         if (Objects.equals(key, "thememode")) {
             var mode = Integer.parseInt(mPrefs.getString("thememode", "0"));
             App.setThemeMode(mode);

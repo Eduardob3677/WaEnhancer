@@ -1,40 +1,89 @@
+<!--
+  ~ WaEnhancer Theme Configuration
+  ~ 
+  ~ This file defines the Material3 (Material Design 3) themes for WaEnhancer.
+  ~ 
+  ~ Theme Selection Modes:
+  ~ - Light Mode (Theme.Light): Explicit light theme with light status bar
+  ~ - Dark Mode (Theme): Explicit dark theme
+  ~ - Auto/System Mode: Uses DayNight delegate to follow system theme
+  ~ 
+  ~ Material3 Implementation:
+  ~ - Uses Theme.Material3.DynamicColors for dynamic color support
+  ~ - Inherits from Rikka Material library for preference compatibility
+  ~ - Dynamic colors automatically adapt to user's wallpaper on Android 12+
+  ~ 
+  ~ Theme Mode Selection (controlled in App.java):
+  ~ - Mode 0: Follow system theme (MODE_NIGHT_FOLLOW_SYSTEM)
+  ~ - Mode 1: Force dark theme (MODE_NIGHT_YES)
+  ~ - Mode 2: Force light theme (MODE_NIGHT_NO)
+  ~ 
+  ~ Android 16 Compatibility:
+  ~ - Dynamic colors are fully supported
+  ~ - System theme changes are automatically detected
+  ~ - Uses AppCompatDelegate for seamless theme switching
+  -->
 <resources>
 
+    <!--
+      ~ Base Light Theme
+      ~ Material3 theme with dynamic colors for light mode.
+      ~ Inherits from Rikka's Material3 DynamicColors implementation for
+      ~ preference compatibility and Material You support on Android 12+.
+      -->
     <style name="Base.AppTheme.Light" parent="Theme.Material3.DynamicColors.Light.Rikka">
+        <!-- Light Mode: Use dark icons on light status bar -->
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimaryVariant">@color/primary_dark_light_light_status_bar</item>
 
+        <!-- Material3: Status bar color matches window background -->
         <item name="android:statusBarColor">?android:colorBackground</item>
 
-        <!-- Preference title -->
+        <!-- Material3 Preference Styling -->
+        <!-- Preference title uses Material3 subtitle1 typography -->
         <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <!-- Preference category uses primary color for accent -->
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
+        <!-- Switch controls use primary color when activated -->
         <item name="android:colorControlActivated">?colorPrimary</item>
     </style>
 
+    <!-- Light Theme: Used when theme mode is set to Light (mode=2) -->
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
 
+    <!--
+      ~ Base Dark Theme
+      ~ Material3 theme with dynamic colors for dark mode.
+      ~ Inherits from Rikka's Material3 DynamicColors implementation for
+      ~ preference compatibility and Material You support on Android 12+.
+      -->
     <style name="Base.AppTheme" parent="Theme.Material3.DynamicColors.Dark.Rikka">
 
-        <!-- Preference title -->
+        <!-- Material3 Preference Styling -->
+        <!-- Preference title uses Material3 subtitle1 typography -->
         <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <!-- Preference category uses primary color for accent -->
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
+        <!-- Switch controls use primary color when activated -->
         <item name="android:colorControlActivated">?colorPrimary</item>
 
+        <!-- Material3: Custom ActionBar styling -->
         <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
 
+    <!-- Material3 ActionBar Style for Dark Theme -->
     <style name="MyActionBar" parent="@style/Widget.Material3.ActionBar.Solid">
         <item name="background">?colorOnSecondary</item>
         <item name="contentInsetStart">5dp</item>
     </style>
 
+    <!-- Dark Theme: Used when theme mode is set to Dark (mode=1) -->
     <style name="Theme" parent="Base.AppTheme" />
 
+    <!--
+      ~ Dialog Styles
+      ~ Material3 typography for device info dialogs
+      -->
     <style name="DeviceInfoDialogLabel">
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>

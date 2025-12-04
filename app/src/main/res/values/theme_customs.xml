@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ WaEnhancer Theme Custom Overlays (Light Mode)
+  ~
+  ~ This file contains Material3 theme overlays for light/day mode.
+  ~ The ThemeOverlay.MaterialGreen provides the green accent color
+  ~ using the Material Theme Builder generated colors.
+  ~
+  ~ For dark mode overlays, see values-night/theme.xml
+  -->
 <resources>
+    <!-- Material3 Green accent theme overlay - light variant for day mode -->
     <style name="ThemeOverlay.MaterialGreen" parent="ThemeOverlay.Light.MaterialGreen"/>
 </resources>
