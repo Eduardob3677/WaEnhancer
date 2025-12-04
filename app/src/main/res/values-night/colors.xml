@@ -42,5 +42,5 @@
 
     <color name="primary_background">@color/md_theme_dark_surface</color>
 
-    <color name="ripple_color">@color/md_theme_dark_primary</color>
+    <color name="ripple_color">#7FDCA0</color>
 </resources>

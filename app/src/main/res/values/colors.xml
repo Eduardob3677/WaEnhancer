@@ -120,11 +120,6 @@
     <color name="primary_background">@color/md_theme_light_surface</color>
     <color name="codeview_strings">#4ADE80</color>
 
-    <color name="switch_track_on">?colorPrimaryContainer</color>
-    <color name="switch_track_off">?colorSurfaceVariant</color>
-    <color name="switch_thumb_on">?colorPrimary</color>
-    <color name="switch_thumb_off">?colorOutline</color>
-
-    <color name="ripple_color">@color/md_theme_light_primary</color>
+    <color name="ripple_color">#00A86B</color>
 
 </resources>
