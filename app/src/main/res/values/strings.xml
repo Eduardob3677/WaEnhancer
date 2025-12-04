@@ -225,8 +225,8 @@
     <string name="android_version">Android SDK</string>
     <string name="message_removed_on">This message was removed on %s.</string>
     <string name="disable_default_emojis">Disable Default Emojis</string>
-    <string name="theme_mode">Dark Theme Wa Enhancer</string>
-    <string name="theme_mode_sum">Force a theme mode in the Wa Enhancer</string>
+    <string name="theme_mode">App Theme</string>
+    <string name="theme_mode_sum">Choose between light, dark, or follow system theme</string>
     <string name="disable_default_emojis_sum">Disables Whatsapp\'s default emojis and uses system emojis\n(NOTE: Whatsapp emojis will disappear from the selector, use the keyboard to insert).</string>
     <string name="other">Other</string>
     <string name="enable_media_preview">Enable Media Preview</string>
@@ -420,4 +420,7 @@
     <string name="disable_status_in_the_profile_photo">Disable Status in the profile photo</string>
     <string name="disable_status_in_the_profile_photo_sum">Disables the circle that appears in the profile photo of each contact when there is new status</string>
     <string name="download_not_available">Download not available or media has not been fully downloaded</string>
+    <string name="follow_system">Follow system</string>
+    <string name="dark_theme_on">Dark</string>
+    <string name="dark_theme_off">Light</string>
 </resources>

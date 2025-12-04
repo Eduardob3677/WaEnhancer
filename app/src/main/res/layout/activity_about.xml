@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="?colorSurface">
 
     <ScrollView
         android:layout_width="0dp"
@@ -17,16 +17,53 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- CardView for the title and developer name -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp">
+                app:cardBackgroundColor="?colorPrimaryContainer"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textAppearance="?textAppearanceHeadlineMedium"
+                        android:textColor="?colorOnPrimaryContainer" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvDevName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/developer"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnPrimaryContainer" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="?colorSurfaceVariant"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -34,87 +71,81 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Fragment Title -->
-                    <TextView
-                        android:id="@+id/tvTitle"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvMainFeatures"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:paddingBottom="8dp"
-                        android:text="@string/app_name"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:text="@string/about"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnSurfaceVariant" />
 
-                    <!-- Developer Name -->
-                    <TextView
-                        android:id="@+id/tvDevName"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvFeaturesSummary"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/developer"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="8dp"
+                        android:text="@string/about_info"
+                        android:textAppearance="?textAppearanceBodyMedium"
+                        android:textColor="?colorOnSurface" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Main Features Section -->
-            <TextView
-                android:id="@+id/tvMainFeatures"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/about"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="?colorSurfaceVariant"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-            <TextView
-                android:id="@+id/tvFeaturesSummary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="@string/about_info"
-                android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <!-- Installation Section -->
-            <TextView
-                android:id="@+id/tvInstallation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/installation"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvInstallation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/installation"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnSurfaceVariant" />
 
-            <TextView
-                android:id="@+id/tvInstallationSteps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="@string/installation_desc"
-                android:textSize="16sp" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvInstallationSteps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/installation_desc"
+                        android:textAppearance="?textAppearanceBodyMedium"
+                        android:textColor="?colorOnSurface" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Button to Telegram -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnTelegram"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="@string/go_to_telegram"
                 app:icon="@drawable/ic_telegram"
                 app:iconGravity="start"
-                app:iconPadding="8dp" />
+                app:iconPadding="12dp" />
 
-            <!-- Button to GitHub -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGithub"
+                style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="@string/go_to_github"
                 app:icon="@drawable/ic_github"
                 app:iconGravity="start"
-                app:iconPadding="8dp" />
+                app:iconPadding="12dp" />
 
-            <!-- Donation Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDonate"
                 android:layout_width="match_parent"
@@ -123,43 +154,74 @@
                 android:text="@string/donate"
                 app:icon="@drawable/ic_donate"
                 app:iconGravity="start"
-                app:iconPadding="8dp" />
+                app:iconPadding="12dp" />
 
-            <!-- Support Section -->
-            <TextView
-                android:id="@+id/tvSupport"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/support"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="?colorSurfaceVariant"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-            <TextView
-                android:id="@+id/tvSupportDetails"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvSupport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/support"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnSurfaceVariant" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvSupportDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/support_desc"
+                        android:textAppearance="?textAppearanceBodyMedium"
+                        android:textColor="?colorOnSurface" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="@string/support_desc"
-                android:textSize="16sp" />
+                app:cardBackgroundColor="?colorSurfaceVariant"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-            <!-- License Section -->
-            <TextView
-                android:id="@+id/tvLicense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/license"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvLicenseDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:text="@string/license_desc"
-                android:textSize="16sp" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLicense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/license"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnSurfaceVariant" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvLicenseDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/license_desc"
+                        android:textAppearance="?textAppearanceBodyMedium"
+                        android:textColor="?colorOnSurface" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>

@@ -2,49 +2,114 @@
 
     <style name="Base.AppTheme.Light" parent="Theme.Material3.DynamicColors.Light.Rikka">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimaryVariant">@color/primary_dark_light_light_status_bar</item>
-
-        <item name="android:statusBarColor">?android:colorBackground</item>
-
-        <!-- Preference title -->
-        <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <item name="colorPrimaryVariant">@color/md_theme_light_primaryContainer</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:textAppearanceListItem">?textAppearanceBodyLarge</item>
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
         <item name="android:colorControlActivated">?colorPrimary</item>
+        <item name="actionBarStyle">@style/WaEnhancer.ActionBar.Light</item>
+        <item name="bottomNavigationStyle">@style/WaEnhancer.BottomNavigation</item>
+        <item name="materialCardViewStyle">@style/WaEnhancer.CardView</item>
+        <item name="materialButtonStyle">@style/WaEnhancer.Button</item>
+        <item name="switchPreferenceCompatStyle">@style/WaEnhancer.SwitchPreference</item>
     </style>
 
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
 
     <style name="Base.AppTheme" parent="Theme.Material3.DynamicColors.Dark.Rikka">
-
-        <!-- Preference title -->
-        <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:textAppearanceListItem">?textAppearanceBodyLarge</item>
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
         <item name="android:colorControlActivated">?colorPrimary</item>
-
-        <item name="actionBarStyle">@style/MyActionBar</item>
-    </style>
-
-    <style name="MyActionBar" parent="@style/Widget.Material3.ActionBar.Solid">
-        <item name="background">?colorOnSecondary</item>
-        <item name="contentInsetStart">5dp</item>
+        <item name="actionBarStyle">@style/WaEnhancer.ActionBar</item>
+        <item name="bottomNavigationStyle">@style/WaEnhancer.BottomNavigation</item>
+        <item name="materialCardViewStyle">@style/WaEnhancer.CardView</item>
+        <item name="materialButtonStyle">@style/WaEnhancer.Button</item>
+        <item name="switchPreferenceCompatStyle">@style/WaEnhancer.SwitchPreference</item>
     </style>
 
     <style name="Theme" parent="Base.AppTheme" />
 
+    <style name="WaEnhancer.ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?colorSurface</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="WaEnhancer.ActionBar.Light" parent="Widget.Material3.Light.ActionBar.Solid">
+        <item name="background">?colorSurface</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="WaEnhancer.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">?colorSurface</item>
+        <item name="itemActiveIndicatorStyle">@style/WaEnhancer.BottomNavigation.ActiveIndicator</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="WaEnhancer.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?colorSecondaryContainer</item>
+    </style>
+
+    <style name="WaEnhancer.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="WaEnhancer.CardView.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+
+    <style name="WaEnhancer.CardView.Primary" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">?colorPrimaryContainer</item>
+    </style>
+
+    <style name="WaEnhancer.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="WaEnhancer.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="WaEnhancer.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="WaEnhancer.SwitchPreference" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_material_switch</item>
+    </style>
+
     <style name="DeviceInfoDialogLabel">
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAppearance">?textAppearanceLabelLarge</item>
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="android:paddingBottom">4dp</item>
     </style>
 
     <style name="DeviceInfoDialogValue">
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
-        <item name="android:paddingBottom">24dp</item>
+        <item name="android:textAppearance">?textAppearanceBodyMedium</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <style name="WaEnhancer.TextAppearance.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">?colorOnSurface</item>
+    </style>
+
+    <style name="WaEnhancer.TextAppearance.Subtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="WaEnhancer.TextAppearance.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?colorOnSurface</item>
     </style>
 
 </resources>

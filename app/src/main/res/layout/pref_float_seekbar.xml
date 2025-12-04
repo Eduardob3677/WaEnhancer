@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:paddingVertical="8dp">
 
-    <androidx.appcompat.widget.AppCompatSeekBar
+    <com.google.android.material.slider.Slider
         android:id="@+id/seekbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="80" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/seekbar_value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="20" />
+        android:layout_weight="20"
+        android:gravity="center"
+        android:textAppearance="?textAppearanceLabelMedium"
+        android:textColor="?colorOnSurfaceVariant" />
 
 </LinearLayout>
