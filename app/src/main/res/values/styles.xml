@@ -34,6 +34,18 @@
         <item name="buttonBarNeutralButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
         <item name="android:windowBackground">?colorSurfaceContainerHigh</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.WaEnhancer.Dialog</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Widget.WaEnhancer.Dialog.BodyText</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.WaEnhancer.Dialog.TitleText</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.Dialog.BodyText" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="android:textAppearance">?textAppearanceBodyMedium</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.Dialog.TitleText" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:textAppearance">?textAppearanceHeadlineSmall</item>
     </style>
 
     <style name="ShapeAppearance.WaEnhancer.Dialog" parent="">
@@ -51,6 +63,8 @@
         <item name="android:textAppearance">?textAppearanceLabelLarge</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="elevation">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">12dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
@@ -63,6 +77,8 @@
         <item name="android:textAppearance">?textAppearanceLabelLarge</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="elevation">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">12dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
@@ -76,6 +92,8 @@
         <item name="android:letterSpacing">0.02</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">?colorOutline</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">12dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.Button.Text" parent="Widget.Material3.Button.TextButton">
@@ -154,5 +172,21 @@
     <style name="TextAppearance.WaEnhancer.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
         <item name="android:textSize">11sp</item>
         <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.SeekBar" parent="Widget.Material3.Slider">
+        <item name="android:progressTint">?colorPrimary</item>
+        <item name="android:thumbTint">?colorPrimary</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipCornerRadius">8dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">?colorOutline</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.Menu" parent="Widget.Material3.PopupMenu">
+        <item name="android:popupBackground">?colorSurfaceContainerHigh</item>
     </style>
 </resources>

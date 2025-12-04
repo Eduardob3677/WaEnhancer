@@ -3,8 +3,8 @@
     <color name="primary_text_material_inverse">@color/abc_primary_text_material_light</color>
     <color name="primary_text_material">@color/abc_primary_text_material_dark</color>
 
-    <color name="ic_launcher_foreground">#8CD9A5</color>
-    <color name="ic_launcher_background">#101410</color>
+    <color name="ic_launcher_foreground">#7FDCA0</color>
+    <color name="ic_launcher_background">#121411</color>
 
     <color name="md_theme_primary">@color/md_theme_dark_primary</color>
     <color name="md_theme_onPrimary">@color/md_theme_dark_onPrimary</color>
@@ -41,4 +41,6 @@
     <color name="material_state_red">@color/status_error_dark</color>
 
     <color name="primary_background">@color/md_theme_dark_surface</color>
+
+    <color name="ripple_color">@color/md_theme_dark_primary</color>
 </resources>

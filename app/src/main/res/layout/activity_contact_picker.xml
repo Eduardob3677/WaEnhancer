@@ -10,17 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/screen_padding_horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
+            android:layout_marginBottom="@dimen/spacing_md"
+            style="@style/Widget.WaEnhancer.TextInputLayout"
             app:startIconDrawable="@drawable/search"
             app:startIconTint="?colorOnSurfaceVariant">
 
@@ -29,7 +25,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_contacts"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textAppearance="?textAppearanceBodyLarge"
+                android:textColor="?colorOnSurface" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -44,7 +42,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/spacing_md"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton

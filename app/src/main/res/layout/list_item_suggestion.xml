@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/suggestItemTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorSurfaceContainerHigh"
-        android:padding="16dp"
+        android:padding="@dimen/spacing_md"
         android:textColor="?colorPrimary"
-        android:textSize="14sp"
         android:textAppearance="?textAppearanceBodyMedium"
         tools:text="Keyword" />
 </LinearLayout>
