@@ -11,13 +11,13 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:clipToPadding="false"
-        android:paddingBottom="24dp">
+        android:paddingBottom="32dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="16dp"
+            android:paddingHorizontal="20dp"
             android:paddingTop="16dp">
 
             <com.google.android.material.card.MaterialCardView
@@ -25,7 +25,7 @@
                 style="@style/Widget.WaEnhancer.StatusCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="?colorPrimaryContainer">
 
                 <LinearLayout
@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingVertical="32dp"
+                    android:paddingVertical="40dp"
                     android:paddingHorizontal="24dp">
 
                     <TextView
@@ -41,10 +41,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:paddingBottom="8dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/app_name"
                         android:textAppearance="?textAppearanceHeadlineMedium"
-                        android:textColor="?colorOnPrimaryContainer" />
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvDevName"
@@ -54,7 +55,7 @@
                         android:text="@string/developer"
                         android:textAppearance="?textAppearanceBodyLarge"
                         android:textColor="?colorOnPrimaryContainer"
-                        android:alpha="0.8" />
+                        android:alpha="0.85" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -68,13 +69,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/tvMainFeatures"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/about"
                         android:textAppearance="?textAppearanceTitleMedium"
                         android:textColor="?colorOnSurface" />
@@ -86,7 +87,7 @@
                         android:text="@string/about_info"
                         android:textAppearance="?textAppearanceBodyMedium"
                         android:textColor="?colorOnSurfaceVariant"
-                        android:lineSpacingMultiplier="1.3" />
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -100,13 +101,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/tvInstallation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/installation"
                         android:textAppearance="?textAppearanceTitleMedium"
                         android:textColor="?colorOnSurface" />
@@ -118,7 +119,7 @@
                         android:text="@string/installation_desc"
                         android:textAppearance="?textAppearanceBodyMedium"
                         android:textColor="?colorOnSurfaceVariant"
-                        android:lineSpacingMultiplier="1.3" />
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -126,29 +127,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnTelegram"
                     style="@style/Widget.WaEnhancer.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     android:text="@string/go_to_telegram"
                     app:icon="@drawable/ic_telegram"
                     app:iconGravity="start"
-                    app:iconPadding="12dp" />
+                    app:iconPadding="16dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnGithub"
                     style="@style/Widget.WaEnhancer.Button.Tonal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="12dp"
                     android:text="@string/go_to_github"
                     app:icon="@drawable/ic_github"
                     app:iconGravity="start"
-                    app:iconPadding="12dp" />
+                    app:iconPadding="16dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDonate"
@@ -158,7 +159,7 @@
                     android:text="@string/donate"
                     app:icon="@drawable/ic_donate"
                     app:iconGravity="start"
-                    app:iconPadding="12dp" />
+                    app:iconPadding="16dp" />
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -171,13 +172,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/tvSupport"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/support"
                         android:textAppearance="?textAppearanceTitleMedium"
                         android:textColor="?colorOnSurface" />
@@ -189,7 +190,7 @@
                         android:text="@string/support_desc"
                         android:textAppearance="?textAppearanceBodyMedium"
                         android:textColor="?colorOnSurfaceVariant"
-                        android:lineSpacingMultiplier="1.3" />
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -203,13 +204,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/tvLicense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="8dp"
+                        android:paddingBottom="12dp"
                         android:text="@string/license"
                         android:textAppearance="?textAppearanceTitleMedium"
                         android:textColor="?colorOnSurface" />
@@ -221,7 +222,7 @@
                         android:text="@string/license_desc"
                         android:textAppearance="?textAppearanceBodyMedium"
                         android:textColor="?colorOnSurfaceVariant"
-                        android:lineSpacingMultiplier="1.3" />
+                        android:lineSpacingMultiplier="1.4" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

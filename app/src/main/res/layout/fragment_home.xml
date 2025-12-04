@@ -33,9 +33,9 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp"
+                android:paddingHorizontal="20dp"
                 android:paddingTop="16dp"
-                android:paddingBottom="24dp"
+                android:paddingBottom="32dp"
                 tools:context=".ui.activity.MainActivity">
 
                 <com.google.android.material.card.MaterialCardView
@@ -51,13 +51,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:paddingVertical="20dp"
-                        android:paddingHorizontal="20dp">
+                        android:paddingVertical="24dp"
+                        android:paddingHorizontal="24dp">
 
                         <ImageView
                             android:id="@+id/status_icon"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
                             android:tint="?colorOnPrimaryContainer"
                             app:srcCompat="@drawable/ic_round_check_circle_24"
                             tools:ignore="ContentDescription" />
@@ -66,7 +66,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="20dp"
                             android:orientation="vertical">
 
                             <com.google.android.material.textview.MaterialTextView
@@ -81,11 +81,11 @@
                                 android:id="@+id/status_summary"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:text=""
                                 android:textAppearance="?textAppearanceBodySmall"
                                 android:textColor="?colorOnPrimaryContainer"
-                                android:alpha="0.8" />
+                                android:alpha="0.85" />
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -104,13 +104,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:paddingVertical="16dp"
-                        android:paddingHorizontal="20dp">
+                        android:paddingVertical="20dp"
+                        android:paddingHorizontal="24dp">
 
                         <ImageView
                             android:id="@+id/status_icon2"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:tint="?colorOnSecondaryContainer"
                             app:srcCompat="@drawable/ic_round_check_circle_24"
                             tools:ignore="ContentDescription" />
@@ -135,20 +135,21 @@
                                 android:id="@+id/status_summary1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:text=""
                                 android:textAppearance="?textAppearanceBodySmall"
                                 android:textColor="?colorOnSecondaryContainer"
-                                android:alpha="0.8" />
+                                android:alpha="0.85" />
                         </LinearLayout>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/reboot_btn"
                             style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             app:icon="@drawable/ic_reload"
                             app:iconTint="?colorOnSecondaryContainer"
+                            app:shapeAppearance="@style/ShapeAppearance.WaEnhancer.Pill"
                             android:contentDescription="@string/restart_whatsapp" />
 
                     </LinearLayout>
@@ -168,13 +169,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:paddingVertical="16dp"
-                        android:paddingHorizontal="20dp">
+                        android:paddingVertical="20dp"
+                        android:paddingHorizontal="24dp">
 
                         <ImageView
                             android:id="@+id/status_icon3"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:tint="?colorOnTertiaryContainer"
                             app:srcCompat="@drawable/ic_round_check_circle_24"
                             tools:ignore="ContentDescription" />
@@ -199,20 +200,21 @@
                                 android:id="@+id/status_summary3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
+                                android:layout_marginTop="4dp"
                                 android:text=""
                                 android:textAppearance="?textAppearanceBodySmall"
                                 android:textColor="?colorOnTertiaryContainer"
-                                android:alpha="0.8" />
+                                android:alpha="0.85" />
                         </LinearLayout>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/reboot_btn2"
                             style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             app:icon="@drawable/ic_reload"
                             app:iconTint="?colorOnTertiaryContainer"
+                            app:shapeAppearance="@style/ShapeAppearance.WaEnhancer.Pill"
                             android:contentDescription="@string/restart_whatsapp" />
 
                     </LinearLayout>
@@ -224,10 +226,11 @@
                     style="@style/Widget.WaEnhancer.InfoCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
                     android:visibility="gone"
                     app:cardBackgroundColor="?colorErrorContainer"
-                    app:strokeColor="?colorError">
+                    app:strokeColor="?colorError"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -238,17 +241,18 @@
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="string/developer_warning_title"
+                            android:text="Developer Warning"
                             android:textAppearance="?textAppearanceTitleSmall"
                             android:textColor="?colorOnErrorContainer" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="string/developer_warning_summary"
+                            android:layout_marginTop="8dp"
+                            android:text="Warning summary placeholder"
                             android:textAppearance="?textAppearanceBodySmall"
-                            android:textColor="?colorOnErrorContainer" />
+                            android:textColor="?colorOnErrorContainer"
+                            android:lineSpacingMultiplier="1.3" />
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -258,13 +262,13 @@
                     style="@style/Widget.WaEnhancer.InfoCard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="24dp">
 
                         <com.google.android.material.textview.MaterialTextView
                             style="@style/DeviceInfoDialogLabel"
@@ -331,7 +335,8 @@
                             style="@style/DeviceInfoDialogValue"
                             android:layout_width="match_parent"
                             android:text=""
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="0dp" />
 
                     </LinearLayout>
 
@@ -344,7 +349,7 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:padding="20dp"
+                        android:padding="24dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -356,7 +361,7 @@
                             android:text="@string/backup_settings"
                             android:textAppearance="?textAppearanceTitleSmall"
                             android:textColor="?colorOnSurface"
-                            android:paddingBottom="16dp" />
+                            android:paddingBottom="20dp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -368,7 +373,7 @@
                                 style="@style/Widget.WaEnhancer.Button.Tonal"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="6dp"
+                                android:layout_marginEnd="8dp"
                                 android:layout_weight="1"
                                 android:text="@string/import_settings" />
 
@@ -377,7 +382,7 @@
                                 style="@style/Widget.WaEnhancer.Button.Tonal"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="6dp"
+                                android:layout_marginStart="8dp"
                                 android:layout_weight="1"
                                 android:text="@string/export_settings" />
                         </LinearLayout>
@@ -387,7 +392,7 @@
                             style="@style/Widget.WaEnhancer.Button.Outlined"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="12dp"
                             android:text="@string/reset_settings" />
 
                     </LinearLayout>
