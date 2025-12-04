@@ -3,18 +3,18 @@
 
     <style name="AppTheme" parent="Theme.Light" />
 
-    <!-- SubtitleCollapsingToolbarLayout styles -->
     <style name="Widget.Design.SubtitleCollapsingToolbar" parent="Widget.Design.CollapsingToolbar" />
 
     <style name="TextAppearance.Design.SubtitleCollapsingToolbar.ExpandedTitle" parent="TextAppearance.Design.CollapsingToolbar.Expanded" />
 
     <style name="TextAppearance.Design.SubtitleCollapsingToolbar.ExpandedSubtitle" parent="TextAppearance.AppCompat.Title">
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
     </style>
 
     <style name="language_menu_style" parent="ThemeOverlay.Preference.SimpleMenuPreference.PopupMenu">
         <item name="android:textAlignment">textStart</item>
     </style>
+
     <style name="Widget.Button.TextButton.Dialog.FullWidth" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
@@ -22,20 +22,33 @@
     </style>
 
     <style name="ThemeOverlay.MaterialAlertDialog.Centered.FullWidthButtons" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
-        <!-- Mark spacer as gone when showing full width buttons -->
         <item name="materialAlertDialogButtonSpacerVisibility">2</item>
         <item name="buttonBarPositiveButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
         <item name="buttonBarNegativeButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
         <item name="buttonBarNeutralButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
-
     </style>
 
     <style name="ThemeOverlay.MaterialAlertDialog.FullWidthButtons" parent="ThemeOverlay.Material3.MaterialAlertDialog">
-        <!-- Mark spacer as gone when showing full width buttons -->
         <item name="materialAlertDialogButtonSpacerVisibility">2</item>
         <item name="buttonBarPositiveButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
         <item name="buttonBarNegativeButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
         <item name="buttonBarNeutralButtonStyle">@style/Widget.Button.TextButton.Dialog.FullWidth</item>
-        <item name="android:windowBackground">@color/primary_background</item>
+        <item name="android:windowBackground">?colorSurface</item>
     </style>
+
+    <style name="WaEnhancer.StatusCard.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?colorOnPrimaryContainer</item>
+    </style>
+
+    <style name="WaEnhancer.StatusCard.Summary" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?colorOnPrimaryContainer</item>
+        <item name="android:alpha">0.8</item>
+    </style>
+
+    <style name="WaEnhancer.SectionTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
 </resources>

@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary_text_material_inverse">@color/abc_primary_text_material_dark</color>
-
     <color name="primary_text_material">@color/abc_primary_text_material_light</color>
 
     <color name="ic_launcher_foreground">#FFFFFF</color>
-    <color name="ic_launcher_background">#F48FB1</color>
+    <color name="ic_launcher_background">#4CAF50</color>
+
+    <color name="md_theme_light_primary">#2E7D32</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#B2DFBB</color>
+    <color name="md_theme_light_onPrimaryContainer">#002106</color>
+    <color name="md_theme_light_secondary">#52634F</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#D5E8CF</color>
+    <color name="md_theme_light_onSecondaryContainer">#101F10</color>
+    <color name="md_theme_light_surface">#FCFDF7</color>
+    <color name="md_theme_light_onSurface">#1A1C19</color>
+    <color name="md_theme_light_surfaceVariant">#DEE5D9</color>
+    <color name="md_theme_light_onSurfaceVariant">#424940</color>
+    <color name="md_theme_light_outline">#72796F</color>
+    <color name="md_theme_light_error">#BA1A1A</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+
+    <color name="md_theme_dark_primary">#81C784</color>
+    <color name="md_theme_dark_onPrimary">#003910</color>
+    <color name="md_theme_dark_primaryContainer">#1B5E20</color>
+    <color name="md_theme_dark_onPrimaryContainer">#B2DFBB</color>
+    <color name="md_theme_dark_secondary">#B9CCB4</color>
+    <color name="md_theme_dark_onSecondary">#243424</color>
+    <color name="md_theme_dark_secondaryContainer">#3A4B39</color>
+    <color name="md_theme_dark_onSecondaryContainer">#D5E8CF</color>
+    <color name="md_theme_dark_surface">#121412</color>
+    <color name="md_theme_dark_onSurface">#E2E3DE</color>
+    <color name="md_theme_dark_surfaceVariant">#424940</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C2C9BD</color>
+    <color name="md_theme_dark_outline">#8C9388</color>
+    <color name="md_theme_dark_error">#FFB4AB</color>
+    <color name="md_theme_dark_onError">#690005</color>
 
     <color name="material_state_yellow">@color/material_yellow_A400</color>
     <color name="material_state_green">@color/material_green_A400</color>
@@ -22,5 +53,9 @@
     <color name="codeview_nth_child">#e0c46c</color>
     <color name="primary_background">@color/background_light</color>
     <color name="codeview_strings">#24D52B</color>
+
+    <color name="status_card_active">#2E7D32</color>
+    <color name="status_card_inactive">#757575</color>
+    <color name="status_card_warning">#F57C00</color>
 
 </resources>

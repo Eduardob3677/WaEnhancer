@@ -3,8 +3,12 @@
     <color name="primary_text_material_inverse">@color/abc_primary_text_material_light</color>
     <color name="primary_text_material">@color/abc_primary_text_material_dark</color>
 
-    <color name="ic_launcher_foreground">#F06292</color>
-    <color name="ic_launcher_background">#E1F5FE</color>
+    <color name="ic_launcher_foreground">#81C784</color>
+    <color name="ic_launcher_background">#1B5E20</color>
 
     <color name="primary_background">@color/background_dark</color>
+
+    <color name="status_card_active">#81C784</color>
+    <color name="status_card_inactive">#9E9E9E</color>
+    <color name="status_card_warning">#FFB74D</color>
 </resources>
