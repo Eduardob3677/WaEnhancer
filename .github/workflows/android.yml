@@ -17,23 +17,12 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Write key
-        if: github.event_name != 'pull_request'
-        run: |
-          if [ ! -z "${{ secrets.KEY_STORE }}" ]; then
-          echo androidStorePassword='${{ secrets.KEY_STORE_PASSWORD }}' >> gradle.properties
-          echo androidKeyAlias='${{ secrets.ALIAS }}' >> gradle.properties
-          echo androidKeyPassword='${{ secrets.KEY_PASSWORD }}' >> gradle.properties
-          echo androidStoreFile='key.jks' >> gradle.properties
-          echo ${{ secrets.KEY_STORE }} | base64 --decode > key.jks
-          fi
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build all flavor variants
         run: |
-          ./gradlew assembleWhatsappDebug assembleBusinessDebug -Pminify=true
+          ./gradlew assembleWhatsappRelease assembleBusinessRelease -Pminify=true
 
       - name: Get short SHA
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
@@ -41,14 +30,14 @@ jobs:
       - name: Upload WhatsApp flavor artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: whatsapp-debug-app-${{ env.SHORT_SHA }}
-          path: app/build/outputs/apk/whatsapp/debug/app-whatsapp-debug.apk
+          name: whatsapp-release-app-${{ env.SHORT_SHA }}
+          path: app/build/outputs/apk/whatsapp/release/app-whatsapp-release.apk
 
       - name: Upload Business flavor artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: business-debug-app-${{ env.SHORT_SHA }}
-          path: app/build/outputs/apk/business/debug/app-business-debug.apk
+          name: business-release-app-${{ env.SHORT_SHA }}
+          path: app/build/outputs/apk/business/release/app-business-release.apk
 
       - name: Post to Telegram channel
         if: ${{ success() && github.ref == 'refs/heads/master' && github.ref_type != 'tag' }}
@@ -62,8 +51,8 @@ jobs:
             GITHUB_SHA_SHORT=$(git rev-parse --short HEAD)
             export output_whatsapp=app/WaEnhancer_$GITHUB_SHA_SHORT.apk
             export output_business=app/WaEnhancer_Business_$GITHUB_SHA_SHORT.apk
-            cp app/build/outputs/apk/whatsapp/debug/app-whatsapp-debug.apk $output_whatsapp
-            cp app/build/outputs/apk/business/debug/app-business-debug.apk $output_business
+            cp app/build/outputs/apk/whatsapp/release/app-whatsapp-release.apk $output_whatsapp
+            cp app/build/outputs/apk/business/release/app-business-release.apk $output_business
             export LOG=$(cat changelog.txt)
             ESCAPED=$(python3 -c 'import json,os,urllib.parse; msg = json.dumps(os.getenv("LOG")); print(urllib.parse.quote(msg if len(msg) <= 1024 else json.dumps(os.getenv("COMMIT_URL"))))')
           
@@ -78,6 +67,6 @@ jobs:
           name: WaEnhancer ${{ env.SHORT_SHA }}
           body_path: changelog.txt
           files: |
-            app/build/outputs/apk/whatsapp/debug/app-whatsapp-debug.apk
-            app/build/outputs/apk/business/debug/app-business-debug.apk
-          tag_name: debug-${{ env.SHORT_SHA }}
+            app/build/outputs/apk/whatsapp/release/app-whatsapp-release.apk
+            app/build/outputs/apk/business/release/app-business-release.apk
+          tag_name: release-${{ env.SHORT_SHA }}
