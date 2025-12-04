@@ -60,6 +60,24 @@
         <item>400</item>
         <item>700</item>
     </string-array>
+    <!--
+      ~ Theme Mode Selection Arrays
+      ~ Used by the ListPreference in preference_general_home.xml
+      ~
+      ~ Material3 Theme Mode Implementation:
+      ~ - follow_system (0): Theme follows Android system dark mode setting
+      ~   Uses AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+      ~   On Android 10+: Respects system dark mode toggle
+      ~   On Android 12+: Also uses Material You dynamic colors from wallpaper
+      ~
+      ~ - dark_theme_on (1): Always uses dark theme
+      ~   Uses AppCompatDelegate.MODE_NIGHT_YES
+      ~   Resources from values-night/ are used
+      ~
+      ~ - dark_theme_off (2): Always uses light theme
+      ~   Uses AppCompatDelegate.MODE_NIGHT_NO
+      ~   Resources from values/ are used
+      -->
     <string-array name="thememode_entries">
         <item>@string/follow_system</item>
         <item>@string/dark_theme_on</item>

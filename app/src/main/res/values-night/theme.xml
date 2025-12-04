@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ WaEnhancer Night Theme Configuration
+  ~
+  ~ This file contains the theme overrides for dark/night mode.
+  ~ When the system or app is in dark mode, these styles are automatically applied.
+  ~
+  ~ Material3 Dark Mode Features:
+  ~ - Uses dark variant of Material3 theme (Theme parent)
+  ~ - Dynamic colors adapt to dark wallpaper variants on Android 12+
+  ~ - Automatic theme switching via AppCompatDelegate
+  ~
+  ~ DayNight Implementation:
+  ~ - Android resource qualifiers (-night) handle automatic theme switching
+  ~ - AppTheme inherits from Theme (dark) in night mode
+  ~ - ThemeOverlay.MaterialGreen uses dark variant
+  ~
+  ~ See App.java setThemeMode() for programmatic theme control.
+  -->
 <resources>
 
+    <!-- Night mode: Use dark theme as the base -->
     <style name="AppTheme" parent="Theme" />
+
+    <!-- Material3 Green accent overlay - uses dark variant at night -->
     <style name="ThemeOverlay.MaterialGreen" parent="ThemeOverlay.Dark.MaterialGreen"/>
 </resources>

@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ WaEnhancer Styles Configuration
+  ~
+  ~ This file defines the app styles and day/light mode theme inheritance.
+  ~ The AppTheme in this file (values/) is used for light/day mode.
+  ~
+  ~ Material3/Material Design Implementation:
+  ~ - AppTheme inherits from Theme.Light for light mode
+  ~ - Widget styles use Material3 components
+  ~ - Dialog overlays use Material3 theming
+  ~
+  ~ Theme Mode Selection:
+  ~ - Light Mode: AppTheme -> Theme.Light -> Base.AppTheme.Light -> Material3.DynamicColors.Light
+  ~ - Dark Mode: Uses values-night/theme.xml instead
+  ~ - Auto Mode: System determines which resource qualifier to use
+  ~
+  ~ The actual theme mode logic is handled in:
+  ~ - App.java: setThemeMode() - controls AppCompatDelegate night mode
+  ~ - BaseActivity.java: applies themes in onCreate()
+  ~ - BasePreferenceFragment.java: listens for theme preference changes
+  -->
 <resources>
 
+    <!--
+      ~ App Theme (Day/Light Mode)
+      ~ This is the default theme used when system is in light mode.
+      ~ For dark mode, Android uses values-night/theme.xml automatically.
+      -->
     <style name="AppTheme" parent="Theme.Light" />
 
+    <!-- Material3 Collapsing Toolbar Styles -->
     <!-- SubtitleCollapsingToolbarLayout styles -->
     <style name="Widget.Design.SubtitleCollapsingToolbar" parent="Widget.Design.CollapsingToolbar" />
 
@@ -12,15 +39,25 @@
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
+    <!-- Language Menu Style (Material3 Preference) -->
     <style name="language_menu_style" parent="ThemeOverlay.Preference.SimpleMenuPreference.PopupMenu">
         <item name="android:textAlignment">textStart</item>
     </style>
+
+    <!--
+      ~ Material3 Dialog Button Styles
+      ~ Full-width button style for Material Alert Dialogs
+      -->
     <style name="Widget.Button.TextButton.Dialog.FullWidth" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:maxWidth">@null</item>
     </style>
 
+    <!--
+      ~ Material3 Alert Dialog Overlays
+      ~ Centered dialog with full-width buttons
+      -->
     <style name="ThemeOverlay.MaterialAlertDialog.Centered.FullWidthButtons" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
         <!-- Mark spacer as gone when showing full width buttons -->
         <item name="materialAlertDialogButtonSpacerVisibility">2</item>
@@ -30,6 +67,7 @@
 
     </style>
 
+    <!-- Material3 Alert Dialog with custom background -->
     <style name="ThemeOverlay.MaterialAlertDialog.FullWidthButtons" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <!-- Mark spacer as gone when showing full width buttons -->
         <item name="materialAlertDialogButtonSpacerVisibility">2</item>

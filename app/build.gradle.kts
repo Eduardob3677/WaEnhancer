@@ -107,20 +107,47 @@ android {
         disable += "SelectedPhotoAccess"
     }
 
+    /**
+     * Material Theme Builder Configuration
+     *
+     * This plugin generates Material3 (Material Design 3) color themes from a primary color.
+     * It creates both light and dark theme overlays that can be applied on top of the base theme.
+     *
+     * Generated themes:
+     * - ThemeOverlay.Light.MaterialGreen: Light variant with green primary color
+     * - ThemeOverlay.Dark.MaterialGreen: Dark variant with green primary color
+     *
+     * These overlays are automatically selected based on the current theme mode:
+     * - Day mode (values/theme_customs.xml): Uses ThemeOverlay.Light.MaterialGreen
+     * - Night mode (values-night/theme.xml): Uses ThemeOverlay.Dark.MaterialGreen
+     *
+     * Material3 Dynamic Colors (Android 12+):
+     * The base themes (Theme.Material3.DynamicColors.Light/Dark.Rikka) already support
+     * dynamic colors from the user's wallpaper. The MaterialGreen overlay provides
+     * a fallback/accent color for devices without dynamic color support.
+     *
+     * @see res/values/themes.xml for base theme definitions
+     * @see res/values/theme_customs.xml for light theme overlay selection
+     * @see res/values-night/theme.xml for dark theme overlay selection
+     */
     materialThemeBuilder {
         themes {
             for ((name, color) in listOf(
                 "Green" to "4FAF50"
             )) {
                 create("Material$name") {
+                    // Light theme overlay format - used in day mode
                     lightThemeFormat = "ThemeOverlay.Light.%s"
+                    // Dark theme overlay format - used in night mode
                     darkThemeFormat = "ThemeOverlay.Dark.%s"
+                    // Primary color for Material3 color scheme generation
                     primaryColor = "#$color"
                 }
             }
         }
         // Add Material Design 3 color tokens (such as palettePrimary100) in generated theme
         // rikka.material >= 2.0.0 provides such attributes
+        // These tokens enable full Material3 color system support
         generatePalette = true
     }
 
