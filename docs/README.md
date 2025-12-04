@@ -146,6 +146,10 @@
 ## Support
 If you encounter any issues or have questions about WaEnhancer, please [Visit Telegram](https://t.me/waenhancer).
 
+## Documentation
+
+- [Theme System](THEMING.md) - Guide to the Material3 theme implementation (light/dark/auto modes)
+
 ## License
 This project is licensed under the GNU License - see the [LICENSE](LICENSE) file for details.
 
