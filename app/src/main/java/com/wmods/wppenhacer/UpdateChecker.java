@@ -14,7 +14,6 @@ import okhttp3.OkHttpClient;
 
 public class UpdateChecker implements Runnable {
 
-    private static final String GITHUB_RELEASES_URL = "https://github.com/Eduardob3677/WaEnhancer/releases/tag/release-92a9b375";
     private static final String GITHUB_API_URL = "https://api.github.com/repos/Eduardob3677/WaEnhancer/releases/latest";
 
     private final Activity mActivity;
@@ -41,17 +40,21 @@ public class UpdateChecker implements Runnable {
             var releaseBody = json.optString("body", "No changelog available");
             var htmlUrl = json.getString("html_url");
 
-            // Extract version hash from tag name (e.g., "release-92a9b375" -> "92a9b375")
-            var hash = tagName.replace("release-", "").trim();
+            // Extract version identifier from tag name
+            // Handles formats like: "release-92a9b375", "v1.0.0", "1.0.0", etc.
+            var versionId = tagName
+                    .replace("release-", "")
+                    .replace("v", "")
+                    .trim();
 
             var appInfo = mActivity.getPackageManager().getPackageInfo(BuildConfig.APPLICATION_ID, 0);
-            if (!appInfo.versionName.toLowerCase().contains(hash.toLowerCase().trim()) && !Objects.equals(WppCore.getPrivString("ignored_version", ""), hash)) {
+            if (!appInfo.versionName.toLowerCase().contains(versionId.toLowerCase().trim()) && !Objects.equals(WppCore.getPrivString("ignored_version", ""), versionId)) {
                 mActivity.runOnUiThread(() -> {
                     var dialog = new AlertDialogWpp(mActivity);
                     dialog.setTitle("WAE - New version available!");
                     dialog.setMessage("Changelog:\n\n" + releaseBody);
                     dialog.setNegativeButton("Ignore", (dialog1, which) -> {
-                        WppCore.setPrivString("ignored_version", hash);
+                        WppCore.setPrivString("ignored_version", versionId);
                         dialog1.dismiss();
                     });
                     dialog.setPositiveButton("Update", (dialog1, which) -> {
