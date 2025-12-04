@@ -2,49 +2,144 @@
 
     <style name="Base.AppTheme.Light" parent="Theme.Material3.DynamicColors.Light.Rikka">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimaryVariant">@color/primary_dark_light_light_status_bar</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_light_error</item>
+        <item name="colorOnError">@color/md_theme_light_onError</item>
+        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_light_outlineVariant</item>
+        <item name="colorSurfaceContainerLowest">@color/md_theme_light_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/md_theme_light_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/md_theme_light_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/md_theme_light_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/md_theme_light_surfaceContainerHighest</item>
+        <item name="colorPrimaryVariant">@color/md_theme_light_primaryContainer</item>
 
-        <item name="android:statusBarColor">?android:colorBackground</item>
-
-        <!-- Preference title -->
-        <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <item name="android:textAppearanceListItem">?textAppearanceTitleMedium</item>
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
         <item name="android:colorControlActivated">?colorPrimary</item>
+        
+        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar.Light</item>
+        <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
+        <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
     </style>
 
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
 
     <style name="Base.AppTheme" parent="Theme.Material3.DynamicColors.Dark.Rikka">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        
+        <item name="colorPrimary">@color/md_theme_dark_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_dark_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_dark_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/md_theme_dark_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_dark_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_dark_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_dark_onTertiaryContainer</item>
+        <item name="colorError">@color/md_theme_dark_error</item>
+        <item name="colorOnError">@color/md_theme_dark_onError</item>
+        <item name="colorErrorContainer">@color/md_theme_dark_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/md_theme_dark_onErrorContainer</item>
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
+        <item name="colorSurface">@color/md_theme_dark_surface</item>
+        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_dark_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_dark_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_dark_outlineVariant</item>
+        <item name="colorSurfaceContainerLowest">@color/md_theme_dark_surfaceContainerLowest</item>
+        <item name="colorSurfaceContainerLow">@color/md_theme_dark_surfaceContainerLow</item>
+        <item name="colorSurfaceContainer">@color/md_theme_dark_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/md_theme_dark_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/md_theme_dark_surfaceContainerHighest</item>
+        <item name="colorPrimaryVariant">@color/md_theme_dark_primaryContainer</item>
 
-        <!-- Preference title -->
-        <item name="android:textAppearanceListItem">?textAppearanceSubtitle1</item>
-        <!-- Preference category title -->
+        <item name="android:textAppearanceListItem">?textAppearanceTitleMedium</item>
         <item name="android:colorAccent">?colorPrimary</item>
-        <!-- Preference switch -->
         <item name="android:colorControlActivated">?colorPrimary</item>
 
-        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar.Dark</item>
+        <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
+        <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
     </style>
 
-    <style name="MyActionBar" parent="@style/Widget.Material3.ActionBar.Solid">
-        <item name="background">?colorOnSecondary</item>
-        <item name="contentInsetStart">5dp</item>
+    <style name="Widget.WaEnhancer.ActionBar.Light" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?colorSurface</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.ActionBar.Dark" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?colorSurface</item>
+        <item name="contentInsetStart">16dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">?colorSurfaceContainer</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.WaEnhancer.BottomNavigation.ActiveIndicator</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?colorSecondaryContainer</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">1dp</item>
+        <item name="contentPadding">0dp</item>
     </style>
 
     <style name="Theme" parent="Base.AppTheme" />
 
     <style name="DeviceInfoDialogLabel">
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAppearance">?textAppearanceLabelMedium</item>
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="android:letterSpacing">0.05</item>
     </style>
 
     <style name="DeviceInfoDialogValue">
         <item name="android:textAlignment">viewStart</item>
-        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
-        <item name="android:paddingBottom">24dp</item>
+        <item name="android:textAppearance">?textAppearanceBodyLarge</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:paddingBottom">16dp</item>
     </style>
 
 </resources>
