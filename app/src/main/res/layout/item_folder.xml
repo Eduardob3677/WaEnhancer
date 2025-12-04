@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="@dimen/card_corner_radius_medium"
     app:cardElevation="0dp"
     app:strokeWidth="0dp"
     app:cardBackgroundColor="?colorSurfaceContainerLow">
@@ -12,9 +12,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="@dimen/spacing_md">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/folder_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,8 +29,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/edit_button"
             style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/icon_button_size"
+            android:layout_height="@dimen/icon_button_size"
             android:contentDescription="Edit"
             app:icon="@drawable/edit"
             app:iconTint="?colorOnSurfaceVariant"
@@ -48,21 +48,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/folder_name">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="4dp"
                 android:text="author:"
-                android:textSize="12sp"
+                android:textAppearance="?textAppearanceLabelMedium"
                 android:textColor="?colorOnSurfaceVariant" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="unknown"
-                android:textSize="12sp"
+                android:textAppearance="?textAppearanceLabelMedium"
                 android:textColor="?colorOnSurfaceVariant" />
 
         </LinearLayout>

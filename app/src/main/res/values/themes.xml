@@ -55,6 +55,11 @@
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.WaEnhancer.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.WaEnhancer.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.WaEnhancer.LargeComponent</item>
+        <item name="switchPreferenceCompatStyle">@style/Widget.WaEnhancer.SwitchPreference</item>
+        <item name="preferenceStyle">@style/Widget.WaEnhancer.Preference</item>
+        <item name="preferenceCategoryStyle">@style/Widget.WaEnhancer.PreferenceCategory</item>
+        <item name="android:listPreferredItemPaddingStart">24dp</item>
+        <item name="android:listPreferredItemPaddingEnd">24dp</item>
     </style>
 
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
@@ -111,14 +116,26 @@
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.WaEnhancer.SmallComponent</item>
         <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.WaEnhancer.MediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.WaEnhancer.LargeComponent</item>
+        <item name="switchPreferenceCompatStyle">@style/Widget.WaEnhancer.SwitchPreference</item>
+        <item name="preferenceStyle">@style/Widget.WaEnhancer.Preference</item>
+        <item name="preferenceCategoryStyle">@style/Widget.WaEnhancer.PreferenceCategory</item>
+        <item name="android:listPreferredItemPaddingStart">24dp</item>
+        <item name="android:listPreferredItemPaddingEnd">24dp</item>
     </style>
 
     <style name="Theme" parent="Base.AppTheme" />
 
     <style name="Widget.WaEnhancer.ActionBar" parent="Widget.Material3.ActionBar.Solid">
         <item name="background">?colorSurface</item>
-        <item name="contentInsetStart">16dp</item>
+        <item name="contentInsetStart">20dp</item>
         <item name="elevation">0dp</item>
+        <item name="titleTextStyle">@style/TextAppearance.WaEnhancer.ActionBarTitle</item>
+    </style>
+
+    <style name="TextAppearance.WaEnhancer.ActionBarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">?colorOnSurface</item>
     </style>
 
     <style name="Widget.WaEnhancer.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
@@ -131,11 +148,14 @@
         <item name="itemPaddingTop">12dp</item>
         <item name="itemPaddingBottom">16dp</item>
         <item name="itemRippleColor">?colorPrimary</item>
+        <item name="android:minHeight">80dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">?colorSecondaryContainer</item>
         <item name="shapeAppearance">@style/ShapeAppearance.WaEnhancer.Pill</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.CardView" parent="Widget.Material3.CardView.Elevated">
@@ -201,6 +221,18 @@
         <item name="android:textAppearance">?textAppearanceBodyLarge</item>
         <item name="android:textColor">?colorOnSurface</item>
         <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.SwitchPreference" parent="Preference.SwitchPreferenceCompat.Material">
+        <item name="android:widgetLayout">@layout/preference_widget_material_switch</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.Preference" parent="Preference.Material">
+        <item name="android:layout">@layout/preference_material</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.PreferenceCategory" parent="Preference.Category.Material">
+        <item name="android:layout">@layout/preference_category_material</item>
     </style>
 
 </resources>

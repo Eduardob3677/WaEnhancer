@@ -5,7 +5,7 @@
     <dimen name="home_primary_elevation">0dp</dimen>
     
     <dimen name="card_corner_radius_small">12dp</dimen>
-    <dimen name="card_corner_radius_medium">16dp</dimen>
+    <dimen name="card_corner_radius_medium">20dp</dimen>
     <dimen name="card_corner_radius_large">28dp</dimen>
     <dimen name="card_corner_radius_extra_large">32dp</dimen>
     
@@ -17,20 +17,27 @@
     <dimen name="spacing_xl">24dp</dimen>
     <dimen name="spacing_xxl">32dp</dimen>
     
-    <dimen name="button_corner_radius">24dp</dimen>
+    <dimen name="button_corner_radius">28dp</dimen>
     <dimen name="button_padding_vertical">14dp</dimen>
     <dimen name="button_padding_horizontal">24dp</dimen>
-    <dimen name="button_min_height">48dp</dimen>
+    <dimen name="button_min_height">52dp</dimen>
     
     <dimen name="icon_button_size">48dp</dimen>
     <dimen name="icon_size_small">20dp</dimen>
     <dimen name="icon_size_medium">24dp</dimen>
     <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_status">40dp</dimen>
     
-    <dimen name="card_padding">20dp</dimen>
-    <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
     <dimen name="card_elevation">0dp</dimen>
     
-    <dimen name="status_card_padding_vertical">20dp</dimen>
-    <dimen name="status_card_padding_horizontal">20dp</dimen>
+    <dimen name="status_card_padding_vertical">24dp</dimen>
+    <dimen name="status_card_padding_horizontal">24dp</dimen>
+    
+    <dimen name="screen_padding_horizontal">20dp</dimen>
+    <dimen name="screen_padding_vertical">16dp</dimen>
+    
+    <dimen name="bottom_nav_height">80dp</dimen>
+    <dimen name="toolbar_height">64dp</dimen>
 </resources>
