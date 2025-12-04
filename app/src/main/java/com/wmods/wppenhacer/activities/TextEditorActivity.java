@@ -1,7 +1,6 @@
 package com.wmods.wppenhacer.activities;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,7 +12,6 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -22,6 +20,9 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.wmods.wppenhacer.R;
 import com.wmods.wppenhacer.activities.base.BaseActivity;
 import com.wmods.wppenhacer.preference.ThemePreference;
@@ -212,17 +213,18 @@ public class TextEditorActivity extends BaseActivity {
         if (uri == null) {
             return;
         }
-        var linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        var input = new EditText(this);
-        input.setHint("example.png");
-        input.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-        linearLayout.addView(input);
-        new AlertDialog.Builder(this)
+        TextInputLayout inputLayout = new TextInputLayout(this);
+        inputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);
+        inputLayout.setBoxCornerRadii(12, 12, 12, 12);
+        inputLayout.setPadding(48, 16, 48, 0);
+        inputLayout.setHint("example.png");
+        TextInputEditText input = new TextInputEditText(inputLayout.getContext());
+        inputLayout.addView(input);
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.enter_image_file_name)
-                .setPositiveButton("OK", (dialog, which) -> {
-                    var fileName = input.getText().toString();
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    var text = input.getText();
+                    var fileName = text != null ? text.toString() : "";
                     if (fileName.endsWith(".png")) {
                         copyFromUri(fileName, uri);
                     } else {
@@ -230,7 +232,7 @@ public class TextEditorActivity extends BaseActivity {
                     }
                 })
                 .setNegativeButton(R.string.cancel, null)
-                .setView(linearLayout).show();
+                .setView(inputLayout).show();
     }
 
     public void copyFromUri(String fileName, Uri uri) {

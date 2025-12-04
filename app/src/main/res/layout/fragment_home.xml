@@ -97,13 +97,11 @@
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/status_summary"
+                                style="@style/WaEnhancer.StatusCard.Subtitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text=""
-                                android:textAppearance="?textAppearanceBodySmall"
-                                android:textColor="?colorOnPrimary"
-                                android:alpha="0.8" />
+                                android:text="" />
 
                         </LinearLayout>
 
@@ -151,13 +149,11 @@
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/status_summary1"
+                                style="@style/WaEnhancer.StatusCard.Subtitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text=""
-                                android:textAppearance="?textAppearanceBodySmall"
-                                android:textColor="?colorOnPrimary"
-                                android:alpha="0.8" />
+                                android:text="" />
 
                         </LinearLayout>
 
@@ -213,13 +209,11 @@
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/status_summary3"
+                                style="@style/WaEnhancer.StatusCard.Subtitle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text=""
-                                android:textAppearance="?textAppearanceBodySmall"
-                                android:textColor="?colorOnPrimary"
-                                android:alpha="0.8" />
+                                android:text="" />
 
                         </LinearLayout>
 

@@ -36,27 +36,4 @@
         <item name="android:windowBackground">@color/primary_background</item>
     </style>
 
-    <style name="WaEnhancer.CardView" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">2dp</item>
-    </style>
-
-    <style name="WaEnhancer.CardView.Status" parent="WaEnhancer.CardView">
-        <item name="cardCornerRadius">24dp</item>
-        <item name="cardElevation">4dp</item>
-    </style>
-
-    <style name="WaEnhancer.SectionTitle">
-        <item name="android:textAppearance">?textAppearanceTitleMedium</item>
-        <item name="android:textColor">?colorOnSurface</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">8dp</item>
-    </style>
-
-    <style name="WaEnhancer.BodyText">
-        <item name="android:textAppearance">?textAppearanceBodyMedium</item>
-        <item name="android:textColor">?colorOnSurfaceVariant</item>
-        <item name="android:lineSpacingMultiplier">1.3</item>
-    </style>
-
 </resources>

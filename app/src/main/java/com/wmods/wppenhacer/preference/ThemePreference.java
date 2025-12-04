@@ -158,7 +158,8 @@ public class ThemePreference extends Preference implements FilePicker.OnUriPicke
                 .setTitle(R.string.new_theme_name)
                 .setView(inputLayout)
                 .setPositiveButton(R.string.create, (dialog, whichButton) -> {
-                    String folderName = input.getText() != null ? input.getText().toString() : "";
+                    var text = input.getText();
+                    String folderName = text != null ? text.toString() : "";
                     if (!TextUtils.isEmpty(folderName)) {
                         createNewFolder(folderName);
                     }
