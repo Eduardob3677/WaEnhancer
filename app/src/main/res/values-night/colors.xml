@@ -3,8 +3,12 @@
     <color name="primary_text_material_inverse">@color/abc_primary_text_material_light</color>
     <color name="primary_text_material">@color/abc_primary_text_material_dark</color>
 
-    <color name="ic_launcher_foreground">#F06292</color>
-    <color name="ic_launcher_background">#E1F5FE</color>
+    <color name="ic_launcher_foreground">#66DF8F</color>
+    <color name="ic_launcher_background">#1A1C19</color>
 
-    <color name="primary_background">@color/background_dark</color>
+    <color name="material_state_yellow">@color/status_warning_dark</color>
+    <color name="material_state_green">@color/status_success_dark</color>
+    <color name="material_state_red">@color/status_error_dark</color>
+
+    <color name="primary_background">@color/md_theme_dark_surface</color>
 </resources>

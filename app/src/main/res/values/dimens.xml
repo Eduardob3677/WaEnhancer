@@ -1,7 +1,22 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="app_icon_size">48dp</dimen>
     <dimen name="tab_layout_height">48dp</dimen>
 
-    <dimen name="home_primary_elevation">6dp</dimen>
+    <dimen name="home_primary_elevation">0dp</dimen>
+    
+    <dimen name="card_corner_radius_small">12dp</dimen>
+    <dimen name="card_corner_radius_medium">16dp</dimen>
+    <dimen name="card_corner_radius_large">24dp</dimen>
+    
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">8dp</dimen>
+    <dimen name="spacing_sm">12dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">20dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+    
+    <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="button_padding_vertical">12dp</dimen>
+    <dimen name="button_padding_horizontal">24dp</dimen>
 </resources>
