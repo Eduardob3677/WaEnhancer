@@ -83,18 +83,9 @@ android {
         all {
             signingConfig =
                 if (signingConfigs["config"].storeFile != null) signingConfigs["config"] else signingConfigs["debug"]
-            if (project.hasProperty("minify") && project.properties["minify"].toString()
-                    .toBoolean()
-            ) {
-                isMinifyEnabled = true
-                proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
-            }
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = project.hasProperty("minify") && project.properties["minify"].toString().toBoolean()
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
