@@ -1,12 +1,16 @@
 <resources>
 
+    <style name="AppTheme" parent="Base.AppTheme.Light" />
+
     <style name="Base.AppTheme.Light" parent="Theme.Material3.DynamicColors.Light.Rikka">
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>
-        
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
@@ -41,10 +45,11 @@
         <item name="android:textAppearanceListItem">?textAppearanceTitleMedium</item>
         <item name="android:colorAccent">?colorPrimary</item>
         <item name="android:colorControlActivated">?colorPrimary</item>
-        
-        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar.Light</item>
+
+        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar</item>
         <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
         <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
+        <item name="textInputStyle">@style/Widget.WaEnhancer.TextInputLayout</item>
     </style>
 
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
@@ -54,7 +59,9 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>
-        
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
@@ -90,18 +97,15 @@
         <item name="android:colorAccent">?colorPrimary</item>
         <item name="android:colorControlActivated">?colorPrimary</item>
 
-        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar.Dark</item>
+        <item name="actionBarStyle">@style/Widget.WaEnhancer.ActionBar</item>
         <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
         <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
+        <item name="textInputStyle">@style/Widget.WaEnhancer.TextInputLayout</item>
     </style>
 
-    <style name="Widget.WaEnhancer.ActionBar.Light" parent="Widget.Material3.ActionBar.Solid">
-        <item name="background">?colorSurface</item>
-        <item name="contentInsetStart">16dp</item>
-        <item name="elevation">0dp</item>
-    </style>
+    <style name="Theme" parent="Base.AppTheme" />
 
-    <style name="Widget.WaEnhancer.ActionBar.Dark" parent="Widget.Material3.ActionBar.Solid">
+    <style name="Widget.WaEnhancer.ActionBar" parent="Widget.Material3.ActionBar.Solid">
         <item name="background">?colorSurface</item>
         <item name="contentInsetStart">16dp</item>
         <item name="elevation">0dp</item>
@@ -114,6 +118,8 @@
         <item name="itemTextColor">@color/bottom_nav_item_color</item>
         <item name="labelVisibilityMode">labeled</item>
         <item name="elevation">0dp</item>
+        <item name="itemPaddingTop">12dp</item>
+        <item name="itemPaddingBottom">16dp</item>
     </style>
 
     <style name="Widget.WaEnhancer.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
@@ -121,12 +127,32 @@
     </style>
 
     <style name="Widget.WaEnhancer.CardView" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">1dp</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius_medium</item>
+        <item name="cardElevation">0dp</item>
         <item name="contentPadding">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
     </style>
 
-    <style name="Theme" parent="Base.AppTheme" />
+    <style name="Widget.WaEnhancer.CardView.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/card_corner_radius_large</item>
+        <item name="cardElevation">0dp</item>
+        <item name="contentPadding">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.CardView.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">@dimen/card_corner_radius_medium</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?colorOutlineVariant</item>
+    </style>
+
+    <style name="Widget.WaEnhancer.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">@dimen/card_corner_radius_small</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/card_corner_radius_small</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/card_corner_radius_small</item>
+        <item name="boxCornerRadiusTopStart">@dimen/card_corner_radius_small</item>
+    </style>
 
     <style name="DeviceInfoDialogLabel">
         <item name="android:textAlignment">viewStart</item>
