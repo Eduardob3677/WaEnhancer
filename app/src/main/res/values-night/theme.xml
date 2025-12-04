@@ -3,4 +3,10 @@
 
     <style name="AppTheme" parent="Theme" />
     <style name="ThemeOverlay.MaterialGreen" parent="ThemeOverlay.Dark.MaterialGreen"/>
+
+    <style name="WaEnhancer.CardView.Status" parent="WaEnhancer.CardView">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
 </resources>

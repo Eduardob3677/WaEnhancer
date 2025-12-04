@@ -13,9 +13,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +21,10 @@ import androidx.core.content.ContextCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.wmods.wppenhacer.App;
 import com.wmods.wppenhacer.R;
 import com.wmods.wppenhacer.activities.TextEditorActivity;
@@ -77,10 +77,10 @@ public class ThemePreference extends Preference implements FilePicker.OnUriPicke
         builder.setView(dialogView);
 
         LinearLayout folderListContainer = dialogView.findViewById(R.id.folder_list_container);
-        Button newTheme = dialogView.findViewById(R.id.create_theme_button);
+        MaterialButton newTheme = dialogView.findViewById(R.id.create_theme_button);
         newTheme.setOnClickListener(v -> showCreateNewThemeDialog());
 
-        Button importTheme = dialogView.findViewById(R.id.import_theme_button);
+        MaterialButton importTheme = dialogView.findViewById(R.id.import_theme_button);
         importTheme.setOnClickListener(v -> {
             FilePicker.setOnUriPickedListener(this);
             FilePicker.fileCapture.launch(new String[]{"application/zip"});
@@ -117,7 +117,7 @@ public class ThemePreference extends Preference implements FilePicker.OnUriPicke
                 }
                 mainDialog.dismiss();
             });
-            ImageButton editButton = itemView.findViewById(R.id.edit_button);
+            MaterialButton editButton = itemView.findViewById(R.id.edit_button);
             if (folder.equals("Default Theme")) {
                 editButton.setVisibility(View.INVISIBLE);
             } else {
@@ -148,12 +148,18 @@ public class ThemePreference extends Preference implements FilePicker.OnUriPicke
 
     private void showCreateNewThemeDialog() {
         final Context context = getContext();
-        final EditText input = new EditText(context);
+        TextInputLayout inputLayout = new TextInputLayout(context);
+        inputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);
+        inputLayout.setBoxCornerRadii(12, 12, 12, 12);
+        inputLayout.setPadding(48, 16, 48, 0);
+        TextInputEditText input = new TextInputEditText(inputLayout.getContext());
+        inputLayout.addView(input);
         new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.new_theme_name)
-                .setView(input)
+                .setView(inputLayout)
                 .setPositiveButton(R.string.create, (dialog, whichButton) -> {
-                    String folderName = input.getText().toString();
+                    var text = input.getText();
+                    String folderName = text != null ? text.toString() : "";
                     if (!TextUtils.isEmpty(folderName)) {
                         createNewFolder(folderName);
                     }

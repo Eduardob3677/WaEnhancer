@@ -420,4 +420,7 @@
     <string name="disable_status_in_the_profile_photo">Disable Status in the profile photo</string>
     <string name="disable_status_in_the_profile_photo_sum">Disables the circle that appears in the profile photo of each contact when there is new status</string>
     <string name="download_not_available">Download not available or media has not been fully downloaded</string>
+    <string name="follow_system">Follow system</string>
+    <string name="dark_theme_on">Dark</string>
+    <string name="dark_theme_off">Light</string>
 </resources>
