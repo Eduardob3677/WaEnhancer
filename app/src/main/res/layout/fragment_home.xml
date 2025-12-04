@@ -159,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    app:cardBackgroundColor="?colorTertiaryContainer"
+                    app:cardBackgroundColor="?colorSurfaceVariant"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -176,10 +176,10 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:background="@drawable/circle_background"
-                            android:backgroundTint="?colorTertiary"
+                            android:backgroundTint="?colorPrimary"
                             android:padding="8dp"
                             app:srcCompat="@drawable/ic_round_check_circle_24"
-                            app:tint="?colorOnTertiary"
+                            app:tint="?colorOnPrimary"
                             tools:ignore="ContentDescription" />
 
                         <LinearLayout
@@ -195,7 +195,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/business_in_background"
                                 android:textAppearance="?textAppearanceTitleMedium"
-                                android:textColor="?colorOnTertiaryContainer" />
+                                android:textColor="?colorOnSurfaceVariant" />
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/status_summary3"
@@ -203,7 +203,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:textAppearance="?textAppearanceBodySmall"
-                                android:textColor="?colorOnTertiaryContainer" />
+                                android:textColor="?colorOnSurfaceVariant" />
                         </LinearLayout>
 
                         <com.google.android.material.button.MaterialButton

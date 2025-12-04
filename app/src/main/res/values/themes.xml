@@ -2,7 +2,6 @@
 
     <style name="Base.AppTheme.Light" parent="Theme.Material3.DynamicColors.Light.Rikka">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="colorPrimaryVariant">@color/md_theme_light_primaryContainer</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:textAppearanceListItem">?textAppearanceBodyLarge</item>
