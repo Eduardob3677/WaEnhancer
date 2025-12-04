@@ -8,7 +8,7 @@
         android:id="@+id/suggestItemTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?colorSurfaceContainerHighest"
+        android:background="?colorSurfaceContainerHigh"
         android:padding="16dp"
         android:textColor="?colorPrimary"
         android:textSize="14sp"

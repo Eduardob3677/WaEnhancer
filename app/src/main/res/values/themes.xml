@@ -50,6 +50,11 @@
         <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
         <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
         <item name="textInputStyle">@style/Widget.WaEnhancer.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.WaEnhancer.Button</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialAlertDialog.FullWidthButtons</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.WaEnhancer.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.WaEnhancer.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.WaEnhancer.LargeComponent</item>
     </style>
 
     <style name="Theme.Light" parent="Base.AppTheme.Light" />
@@ -101,6 +106,11 @@
         <item name="bottomNavigationStyle">@style/Widget.WaEnhancer.BottomNavigation</item>
         <item name="materialCardViewStyle">@style/Widget.WaEnhancer.CardView</item>
         <item name="textInputStyle">@style/Widget.WaEnhancer.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/Widget.WaEnhancer.Button</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialAlertDialog.FullWidthButtons</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.WaEnhancer.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.WaEnhancer.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.WaEnhancer.LargeComponent</item>
     </style>
 
     <style name="Theme" parent="Base.AppTheme" />
@@ -120,10 +130,12 @@
         <item name="elevation">0dp</item>
         <item name="itemPaddingTop">12dp</item>
         <item name="itemPaddingBottom">16dp</item>
+        <item name="itemRippleColor">?colorPrimary</item>
     </style>
 
     <style name="Widget.WaEnhancer.BottomNavigation.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">?colorSecondaryContainer</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.WaEnhancer.Pill</item>
     </style>
 
     <style name="Widget.WaEnhancer.CardView" parent="Widget.Material3.CardView.Elevated">
@@ -152,20 +164,43 @@
         <item name="boxCornerRadiusBottomStart">@dimen/card_corner_radius_small</item>
         <item name="boxCornerRadiusTopEnd">@dimen/card_corner_radius_small</item>
         <item name="boxCornerRadiusTopStart">@dimen/card_corner_radius_small</item>
+        <item name="boxStrokeColor">?colorOutline</item>
+        <item name="hintTextColor">?colorPrimary</item>
+    </style>
+
+    <style name="ShapeAppearance.WaEnhancer.SmallComponent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/card_corner_radius_small</item>
+    </style>
+
+    <style name="ShapeAppearance.WaEnhancer.MediumComponent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/card_corner_radius_medium</item>
+    </style>
+
+    <style name="ShapeAppearance.WaEnhancer.LargeComponent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/card_corner_radius_large</item>
+    </style>
+
+    <style name="ShapeAppearance.WaEnhancer.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="DeviceInfoDialogLabel">
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">?textAppearanceLabelMedium</item>
         <item name="android:textColor">?colorOnSurfaceVariant</item>
-        <item name="android:letterSpacing">0.05</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:paddingTop">4dp</item>
     </style>
 
     <style name="DeviceInfoDialogValue">
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textAppearance">?textAppearanceBodyLarge</item>
         <item name="android:textColor">?colorOnSurface</item>
-        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
 </resources>
