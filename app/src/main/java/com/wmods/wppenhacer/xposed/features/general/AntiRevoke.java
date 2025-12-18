@@ -103,8 +103,9 @@ public class AntiRevoke extends Feature {
                     obj = param.args[0]; // The fragment itself
                     
                     // Try to get current message from fragment fields
+                    // Look for List field that contains messages - prefer fields with "A09" naming pattern
                     var messageListField = ReflectionUtils.findFieldUsingFilter(obj.getClass(), 
-                        f -> List.class.isAssignableFrom(f.getType()));
+                        f -> List.class.isAssignableFrom(f.getType()) && !Modifier.isStatic(f.getModifiers()));
                     if (messageListField == null) {
                         return;
                     }
@@ -113,12 +114,17 @@ public class AntiRevoke extends Feature {
                         return;
                     }
                     
-                    // Get current index from fragment
+                    // Get current index from fragment - try to find int field
+                    // Usually one of the first few int fields (A00, A01, etc.)
                     var currentIndexField = ReflectionUtils.findFieldUsingFilter(obj.getClass(), 
-                        f -> f.getType() == int.class && f.getName().startsWith("A0"));
+                        f -> f.getType() == int.class && !Modifier.isStatic(f.getModifiers()) && f.getName().matches("A0[0-9]"));
                     int currentIndex = 0;
                     if (currentIndexField != null) {
-                        currentIndex = (int) currentIndexField.get(obj);
+                        try {
+                            currentIndex = (int) currentIndexField.get(obj);
+                        } catch (Exception e) {
+                            // Use default index 0
+                        }
                     }
                     
                     if (currentIndex >= 0 && currentIndex < messageList.size()) {
