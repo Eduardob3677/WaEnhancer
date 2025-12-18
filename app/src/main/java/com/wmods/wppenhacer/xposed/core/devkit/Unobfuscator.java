@@ -329,9 +329,13 @@ public class Unobfuscator {
                 
                 throw new ClassNotFoundException("ForwardClass not found - neither 'UserActionsMessageForwarding/userActionForwardMessage' nor 'UserActions/userActionForwardMessage' pattern found");
             });
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | NoClassDefFoundError e) {
             // Return null if class not found - this is expected for some WhatsApp versions
             // The calling code in TagMessage.java is designed to handle null gracefully
+            return null;
+        } catch (Exception e) {
+            // Log unexpected exceptions for debugging but still return null to avoid breaking the app
+            XposedBridge.log("Unexpected error in loadForwardClassMethod: " + e.getMessage());
             return null;
         }
     }
