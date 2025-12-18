@@ -30,16 +30,24 @@ public class TagMessage extends Feature {
 
         Method method = Unobfuscator.loadForwardTagMethod(classLoader);
         logDebug(Unobfuscator.getMethodDescriptor(method));
-        Class<?> forwardClass = Unobfuscator.loadForwardClassMethod(classLoader);
-        logDebug("ForwardClass: " + forwardClass.getName());
+        
+        Class<?> forwardClass = null;
+        try {
+            forwardClass = Unobfuscator.loadForwardClassMethod(classLoader);
+            logDebug("ForwardClass: " + forwardClass.getName());
+        } catch (Exception e) {
+            logDebug("ForwardClass not found: " + e.getMessage() + " - Hide forward tag will not work");
+        }
 
+        final Class<?> finalForwardClass = forwardClass;
         XposedBridge.hookMethod(method, new XC_MethodHook() {
             @Override
             protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                 if (!prefs.getBoolean("hidetag", false)) return;
+                if (finalForwardClass == null) return; // Can't detect forward without the class
                 var arg = (long) param.args[0];
                 if (arg == 1) {
-                    if (ReflectionUtils.isCalledFromClass(forwardClass)) {
+                    if (ReflectionUtils.isCalledFromClass(finalForwardClass)) {
                         param.args[0] = 0;
                     }
                 }
