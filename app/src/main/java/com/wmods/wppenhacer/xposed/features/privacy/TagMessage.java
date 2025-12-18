@@ -31,12 +31,11 @@ public class TagMessage extends Feature {
         Method method = Unobfuscator.loadForwardTagMethod(classLoader);
         logDebug(Unobfuscator.getMethodDescriptor(method));
         
-        Class<?> forwardClass = null;
-        try {
-            forwardClass = Unobfuscator.loadForwardClassMethod(classLoader);
+        Class<?> forwardClass = Unobfuscator.loadForwardClassMethod(classLoader);
+        if (forwardClass != null) {
             logDebug("ForwardClass: " + forwardClass.getName());
-        } catch (Exception e) {
-            logDebug("ForwardClass not found: " + e.getMessage() + " - Hide forward tag will not work");
+        } else {
+            logDebug("ForwardClass not found - Hide forward tag will not work");
         }
 
         final Class<?> finalForwardClass = forwardClass;

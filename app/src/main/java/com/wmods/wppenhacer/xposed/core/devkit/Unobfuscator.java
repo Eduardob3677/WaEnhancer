@@ -307,27 +307,37 @@ public class Unobfuscator {
         });
     }
 
-    public synchronized static Class<?> loadForwardClassMethod(ClassLoader classLoader) throws Exception {
-        return UnobfuscatorCache.getInstance().getClass(classLoader, "loadForwardClassMethod", () -> {
-            // Try newer version first (2.25.37+, 2.26.1+)
-            Class<?> clazz = null;
-            try {
-                clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActionsMessageForwarding/userActionForwardMessage");
-            } catch (Exception e) {
-                // Ignore and try next pattern
-            }
-            if (clazz != null) return clazz;
-            
-            // Fallback to older version
-            try {
-                clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActions/userActionForwardMessage");
-            } catch (Exception e) {
-                // Ignore
-            }
-            if (clazz != null) return clazz;
-            
-            throw new ClassNotFoundException("ForwardClass not found - neither 'UserActionsMessageForwarding/userActionForwardMessage' nor 'UserActions/userActionForwardMessage' pattern found");
-        });
+    public synchronized static Class<?> loadForwardClassMethod(ClassLoader classLoader) {
+        try {
+            return UnobfuscatorCache.getInstance().getClass(classLoader, "loadForwardClassMethod", () -> {
+                // Try newer version first (2.25.37+, 2.26.1+)
+                Class<?> clazz = null;
+                try {
+                    clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActionsMessageForwarding/userActionForwardMessage");
+                } catch (Exception e) {
+                    // Ignore and try next pattern
+                }
+                if (clazz != null) return clazz;
+                
+                // Fallback to older version
+                try {
+                    clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActions/userActionForwardMessage");
+                } catch (Exception e) {
+                    // Ignore
+                }
+                if (clazz != null) return clazz;
+                
+                throw new ClassNotFoundException("ForwardClass not found - neither 'UserActionsMessageForwarding/userActionForwardMessage' nor 'UserActions/userActionForwardMessage' pattern found");
+            });
+        } catch (ClassNotFoundException | NoClassDefFoundError e) {
+            // Return null if class not found - this is expected for some WhatsApp versions
+            // The calling code in TagMessage.java is designed to handle null gracefully
+            return null;
+        } catch (Exception e) {
+            // Log unexpected exceptions for debugging but still return null to avoid breaking the app
+            XposedBridge.log("Failed to load forward class method: " + e.getClass().getSimpleName() + " - " + e.getMessage());
+            return null;
+        }
     }
 
 
