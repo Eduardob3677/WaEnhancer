@@ -335,7 +335,7 @@ public class Unobfuscator {
             return null;
         } catch (Exception e) {
             // Log unexpected exceptions for debugging but still return null to avoid breaking the app
-            XposedBridge.log("Unexpected error in loadForwardClassMethod: " + e.getMessage());
+            XposedBridge.log("Failed to load forward class method: " + e.getClass().getSimpleName() + " - " + e.getMessage());
             return null;
         }
     }
