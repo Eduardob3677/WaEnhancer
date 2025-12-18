@@ -308,7 +308,17 @@ public class Unobfuscator {
     }
 
     public synchronized static Class<?> loadForwardClassMethod(ClassLoader classLoader) throws Exception {
-        return UnobfuscatorCache.getInstance().getClass(classLoader, () -> findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActions/userActionForwardMessage"));
+        return UnobfuscatorCache.getInstance().getClass(classLoader, () -> {
+            // Try newer version first (2.25.37+)
+            var clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActionsMessageForwarding/userActionForwardMessage");
+            if (clazz != null) return clazz;
+            
+            // Fallback to older version
+            clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, "UserActions/userActionForwardMessage");
+            if (clazz != null) return clazz;
+            
+            throw new ClassNotFoundException("ForwardClass not found");
+        });
     }
 
 
@@ -767,12 +777,23 @@ public class Unobfuscator {
             var statusPlaybackClass = XposedHelpers.findClass("com.whatsapp.status.playback.fragment.StatusPlaybackContactFragment", loader);
             var refreshCurrentPage = dexkit.findMethod(FindMethod.create().matcher(MethodMatcher.create().addUsingString("playbackFragment/refreshCurrentPageSubTitle message is empty"))).get(0);
             var invokes = refreshCurrentPage.getInvokes();
+            
+            // Try to find method with 3+ parameters (older versions)
             for (var invoke : invokes) {
                 var method = invoke.getMethodInstance(loader);
                 if (Modifier.isStatic(method.getModifiers()) && method.getParameterCount() > 1 && List.of(method.getParameterTypes()).contains(statusPlaybackClass) && method.getDeclaringClass() == statusPlaybackClass) {
                     return method;
                 }
             }
+            
+            // For newer versions (2.25.37+), try to find method with 1 parameter (the fragment)
+            for (var invoke : invokes) {
+                var method = invoke.getMethodInstance(loader);
+                if (Modifier.isStatic(method.getModifiers()) && method.getParameterCount() == 1 && method.getParameterTypes()[0] == statusPlaybackClass && method.getDeclaringClass() == statusPlaybackClass) {
+                    return method;
+                }
+            }
+            
             throw new Exception("UnknownStatusPlayback method not found");
         });
     }
