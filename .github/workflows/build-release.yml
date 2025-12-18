@@ -93,7 +93,6 @@ jobs:
             release-apks/checksums.txt
             
       - name: Post to Telegram (if configured)
-        if: success() && secrets.BOT_TOKEN != ''
         env:
           VERSION: ${{ steps.version.outputs.VERSION_NAME }}
         run: |
