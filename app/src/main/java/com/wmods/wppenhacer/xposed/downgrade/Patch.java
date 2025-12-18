@@ -40,6 +40,7 @@ public class Patch {
 
 
         switch (Build.VERSION.SDK_INT) {
+            case 36: // Android 16 (not yet in Build.VERSION_CODES)
             case Build.VERSION_CODES.VANILLA_ICE_CREAM:  // 35
             case Build.VERSION_CODES.UPSIDE_DOWN_CAKE: // 34
                 findAndHookMethod("com.android.server.pm.PackageManagerServiceUtils", lpparam.classLoader,
