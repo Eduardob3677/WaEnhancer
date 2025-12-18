@@ -94,18 +94,65 @@ public class AntiRevoke extends Feature {
         XposedBridge.hookMethod(unknownStatusPlaybackMethod, new XC_MethodHook() {
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                Object obj = ReflectionUtils.getArg(param.args, param.method.getDeclaringClass(), 0);
-                var objFMessage = param.args[0];
+                Object obj;
+                Object objFMessage;
+                
+                // Check if this is new version (1 param) or old version (3+ params)
+                if (param.method.getParameterCount() == 1) {
+                    // New version (2.25.37+): only fragment parameter
+                    obj = param.args[0]; // The fragment itself
+                    
+                    // Try to get current message from fragment fields
+                    // Look for List field that contains messages - prefer fields with "A09" naming pattern
+                    var messageListField = ReflectionUtils.findFieldUsingFilter(obj.getClass(), 
+                        f -> List.class.isAssignableFrom(f.getType()) && !Modifier.isStatic(f.getModifiers()));
+                    if (messageListField == null) {
+                        return;
+                    }
+                    List<?> messageList = (List<?>) messageListField.get(obj);
+                    if (messageList == null || messageList.isEmpty()) {
+                        return;
+                    }
+                    
+                    // Get current index from fragment - try to find int field
+                    // Usually one of the first few int fields (A00, A01, etc.)
+                    var currentIndexField = ReflectionUtils.findFieldUsingFilter(obj.getClass(), 
+                        f -> f.getType() == int.class && !Modifier.isStatic(f.getModifiers()) && f.getName().matches("A0[0-9]"));
+                    int currentIndex = 0;
+                    if (currentIndexField != null) {
+                        try {
+                            currentIndex = (int) currentIndexField.get(obj);
+                        } catch (Exception e) {
+                            // Use default index 0
+                        }
+                    }
+                    
+                    if (currentIndex >= 0 && currentIndex < messageList.size()) {
+                        objFMessage = messageList.get(currentIndex);
+                    } else {
+                        objFMessage = messageList.get(0);
+                    }
+                } else {
+                    // Old version: 3 parameters
+                    obj = ReflectionUtils.getArg(param.args, param.method.getDeclaringClass(), 0);
+                    objFMessage = param.args[0];
+                }
+                
                 if (!FMessageWpp.TYPE.isInstance(objFMessage)) {
                     var field = ReflectionUtils.findFieldUsingFilter(objFMessage.getClass(), f -> f.getType() == FMessageWpp.TYPE);
                     if (field != null) {
                         objFMessage = field.get(objFMessage);
                     } else {
                         var field1 = ReflectionUtils.findFieldUsingFilter(objFMessage.getClass(), f -> f.getType() == FMessageWpp.Key.TYPE);
+                        if (field1 == null) {
+                            // Can't find FMessage, skip
+                            return;
+                        }
                         var key = field1.get(objFMessage);
                         objFMessage = WppCore.getFMessageFromKey(key);
                     }
                 }
+                
                 var field = ReflectionUtils.getFieldByType(param.method.getDeclaringClass(), statusPlaybackClass);
 
                 Object objView = field.get(obj);
