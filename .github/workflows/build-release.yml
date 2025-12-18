@@ -6,7 +6,7 @@ on:
     tags:
       - 'v*'
     branches:
-      - 'release/**'
+      - '**'
 
 jobs:
   build-release:
@@ -20,32 +20,11 @@ jobs:
         uses: actions/checkout@v6
         
       - name: Set up JDK 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
-          
-      - name: Decode and setup keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEY_STORE }}
-          KEYSTORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: |
-          if [ -z "$KEYSTORE_BASE64" ]; then
-            echo "::error::KEY_STORE secret is not set"
-            exit 1
-          fi
-          
-          # Decode keystore from base64
-          echo "$KEYSTORE_BASE64" | base64 --decode > keystore.jks
-          
-          # Add signing configuration to gradle.properties
-          echo "androidStorePassword=$KEYSTORE_PASSWORD" >> gradle.properties
-          echo "androidKeyAlias=$KEY_ALIAS" >> gradle.properties
-          echo "androidKeyPassword=$KEY_PASSWORD" >> gradle.properties
-          echo "androidStoreFile=keystore.jks" >> gradle.properties
           
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
