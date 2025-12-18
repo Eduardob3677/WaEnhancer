@@ -95,8 +95,6 @@ jobs:
       - name: Post to Telegram (if configured)
         if: success() && secrets.BOT_TOKEN != ''
         env:
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           VERSION: ${{ steps.version.outputs.VERSION_NAME }}
         run: |
           if [ ! -z "$BOT_TOKEN" ]; then
