@@ -18,10 +18,13 @@ import com.wmods.wppenhacer.xposed.utils.ResId;
 import com.wmods.wppenhacer.xposed.utils.Utils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -98,7 +101,8 @@ public class AntiRevoke extends Feature {
                 Object objFMessage;
                 
                 // Check if this is new version (1 param) or old version (3+ params)
-                if (param.method.getParameterCount() == 1) {
+                Method method = (Method) param.method;
+                if (method.getParameterCount() == 1) {
                     // New version (2.25.37+): only fragment parameter
                     obj = param.args[0]; // The fragment itself
                     
