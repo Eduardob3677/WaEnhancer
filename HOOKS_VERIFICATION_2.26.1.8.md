@@ -155,14 +155,38 @@ The code implements intelligent pattern handling:
 
 Example from `Unobfuscator.loadForwardClassMethod()`:
 ```java
-// Try newer version first (2.25.37+, 2.26.1+)
-clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, 
-    "UserActionsMessageForwarding/userActionForwardMessage");
-if (clazz != null) return clazz;
-
-// Fallback to older version
-clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, 
-    "UserActions/userActionForwardMessage");
+public synchronized static Class<?> loadForwardClassMethod(ClassLoader classLoader) {
+    try {
+        return UnobfuscatorCache.getInstance().getClass(classLoader, "loadForwardClassMethod", () -> {
+            // Try newer version first (2.25.37+, 2.26.1+)
+            Class<?> clazz = null;
+            try {
+                clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, 
+                    "UserActionsMessageForwarding/userActionForwardMessage");
+            } catch (Exception e) {
+                // Ignore and try next pattern
+            }
+            if (clazz != null) return clazz;
+            
+            // Fallback to older version
+            try {
+                clazz = findFirstClassUsingStrings(classLoader, StringMatchType.Contains, 
+                    "UserActions/userActionForwardMessage");
+            } catch (Exception e) {
+                // Ignore
+            }
+            if (clazz != null) return clazz;
+            
+            throw new ClassNotFoundException("ForwardClass not found");
+        });
+    } catch (ClassNotFoundException | NoClassDefFoundError e) {
+        // Return null if class not found - graceful handling
+        return null;
+    } catch (Exception e) {
+        XposedBridge.log("Failed to load forward class method: " + e.getMessage());
+        return null;
+    }
+}
 ```
 
 ## Loading Statistics
